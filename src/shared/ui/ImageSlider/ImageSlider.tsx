@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import cls from "./ImageSlider.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -15,13 +15,13 @@ const ImageSlider = (props: ImageSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [images.length, isTransitioning]);
 
   const goToPrev = () => {
     if (isTransitioning) return;
@@ -42,7 +42,7 @@ const ImageSlider = (props: ImageSliderProps) => {
 
     const interval = setInterval(goToNext, autoPlayInterval);
     return () => clearInterval(interval);
-  }, [currentIndex, autoPlay]);
+  }, [autoPlay, autoPlayInterval, goToNext]);
 
   const handleTransitionEnd = () => {
     setIsTransitioning(false);

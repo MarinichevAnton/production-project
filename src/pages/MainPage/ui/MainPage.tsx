@@ -31,7 +31,7 @@ const MainPage = () => {
           <ImageSlider
             images={SHORT_SLIDER_PICTURES}
             autoPlay={true}
-            autoPlayInterval={1000}
+            autoPlayInterval={2500}
             descriptions={DESCRIPTION_SHORT_SLIDER}
           />
         </div>
