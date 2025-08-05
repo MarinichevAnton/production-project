@@ -20,9 +20,9 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
       onClick={toggleTheme}
     >
       {theme === Theme.LIGHT ? (
-        <IconSun height="50px" width="40px" />
-      ) : (
         <IconMoon height="50px" width="40px" />
+      ) : (
+        <IconSun height="50px" width="40px" />
       )}
     </Button>
   );

@@ -1,17 +1,23 @@
 .Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: var(--navbar-height);
   background: var(--inverted-bg-color);
+  padding: 20px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.NavbarRoutes, .NavbarButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.Logo {
   display: flex;
   align-items: center;
-  padding: 20px;
-  border: 1px solid black;
-}
-
-.links {
-  margin-left: auto;
-}
-
-.mainLink {
-  margin-right: 15px;
+  justify-content: center;
 }
